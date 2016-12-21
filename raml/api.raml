@@ -1,0 +1,25 @@
+#%RAML 1.0
+title: USales APIs
+version: v1
+baseUri: http://api.samplehost.com
+description: This is APIs specification for USales.
+
+/category:
+  post:
+  get:
+  /{categoryID}:
+    get:
+    patch:
+/product:
+  /{productID}:
+    get:
+    patch:
+/order:
+  post:
+  get:
+  /{orderID}:
+    get:
+    patch:
+    /line/{lineID}:
+        delete:
+        patch:
