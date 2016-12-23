@@ -1,16 +1,68 @@
 #%RAML 1.0
 title: USales APIs
 version: v1
-baseUri: http://api.samplehost.com
+baseUri: http://localhost
 description: This is APIs specification for USales.
 
+schemas:
+  
+
 /category:
+  description: Collection of available Categories.
+  get:
+    description: Get a list of active category.
+    queryParameters:
+      name:
+        description: The name of category to search (it is case insensitive and doesn't need to match the whole name
+        required: false
+        minLength: 3
+        type: string
+        example: "Toy"
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "categories": [
+                  {
+
+                  }
+                ]
+              }
+  post:
+
+  /{categoryID}:
+    description: Category entity
+    get:
+      description: Retrieve a specific Category.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+
+                }
+        404:
+          body:
+            application/json:
+              example: |
+                {
+                "message": "Category not found."
+                }
+    patch:
+    /product:
+      get:
+        queryParameters:
+          name:
+/product:
   post:
   get:
-  /{categoryID}:
-    get:
-    patch:
-/product:
+    queryParameters:
+      name:
+        type: string
+        description: Product name will include this string
   /{productID}:
     get:
     patch:
