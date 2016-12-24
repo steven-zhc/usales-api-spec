@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: The definition of product types
+version: v1
+
+types:
+  category:
+    type: object
+    properties:
+      cid:
+        type: integer
+        displayName: Category ID
+      name: string
+    example: |
+      {
+        "cid": 1,
+        "name": "toy"
+      }
+  product:
+    type: object
+    properties:
+      pid:
+        type: integer
+        displayName: Product ID
+      name: string
+      c:
+        type: category
+        displayName: Category of product
+      desc:
+        type: string
+        displayName: Production Description
+        required: false
+      price:
+        type: number
+        displayName: List price of product
+      url?: string
+    example: |
+      {
+        "pid": 1,
+        "name": "hot wheel",
+        "c": {"cid": 1, "name": "toy"},
+        "desc": "car model",
+        "price": 3.99,
+        "url": "http://a.b.c"
+      }

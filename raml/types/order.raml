@@ -1,0 +1,121 @@
+#%RAML 1.0
+title: The definition of order types
+version: v1
+
+types:
+  order:
+    type: object
+    properties:
+      oid:
+        type: integer
+        displayName: Order ID
+      status:
+        type: integer
+        enum: [0, 1, 2, 3, 4]
+      total: number
+      profit: number
+      date: datetime
+      note?: string
+      deliverFee?: number
+      deliverDate?: date-only
+      trackingNo?: string
+      payment?: number
+      lines: orderLine[]
+    example: |
+      {
+        "oid": 1,
+        "status": 2,
+        "total": 23.67,
+        "profit": 3.99,
+        "date": "2016-03-01T14:30:03Z",
+        "lines": [
+          {
+            "lid": 1,
+            "pid": 1,
+            "date": "2016-03-01T14:30:03Z",
+            "total": 23.67,
+            "profit": 3.99,
+            "model": "SL33",
+            "note": "A gift for brother",
+            "purchase": {
+              "q": 2, "p": 10.0, "t": 0.88, "s": 0.00, "d": -1.20, "total": 19.68
+            },
+            "sell": {
+              "q": 2, "p": 10.0, "t": 0.88, "s": 3.99, "d": -1.20, "total": 23.67
+            }
+          }
+        ]
+      }
+  orderLine:
+    type: object
+    properties:
+      lid:
+        type: integer
+        displayName: Order Line ID
+      pid:
+        type: integer
+        displayName: Production ID
+      date:
+        type: datetime
+        displayName: Date created
+      total:
+        type: number
+        displayName: Total of line
+        required: false
+      profit:
+        type: number
+        displayName: Total profit of line
+        required: false
+      model?: string
+      note?: string
+      purchase: lineBody
+      sell: lineBody
+    example: |
+      {
+        "lid": 1,
+        "pid": 1,
+        "date": "2016-03-01T14:30:03Z",
+        "total": 23.67,
+        "profit": 3.99,
+        "model": "SL33",
+        "note": "A gift for brother",
+        "purchase": {
+          "q": 2, "p": 10.0, "t": 0.88, "s": 0.00, "d": -1.20, "total": 19.68
+        },
+        "sell": {
+          "q": 2, "p": 10.0, "t": 0.88, "s": 3.99, "d": -1.20, "total": 23.67
+        }
+      }
+  lineBody:
+    type: object
+    properties:
+      q:
+        type: integer
+        displayName: Quantity
+      p:
+        type: number
+        displayName: price
+      t:
+        type: number
+        displayName: Tax
+      s:
+        type: number
+        displayName: Shipping Fee
+      d:
+        type: number
+        displayName: Discount
+        maximum: 0
+        required: false
+      total:
+        type: number
+        displayName: Total price
+        required: false
+    example: |
+      {
+        "q": 2,
+        "p": 10.0,
+        "t": 0.88,
+        "s": 3.99,
+        "d": -1.20,
+        "total": 13.67
+      }

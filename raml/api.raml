@@ -3,9 +3,10 @@ title: USales APIs
 version: v1
 baseUri: http://localhost
 description: This is APIs specification for USales.
+mediaType: application/json
 
-schemas:
-  
+types:
+
 
 /category:
   description: Collection of available Categories.
@@ -21,15 +22,6 @@ schemas:
     responses:
       200:
         body:
-          application/json:
-            example: |
-              {
-                "categories": [
-                  {
-
-                  }
-                ]
-              }
   post:
 
   /{categoryID}:
