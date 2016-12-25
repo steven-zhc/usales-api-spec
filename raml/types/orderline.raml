@@ -1,0 +1,45 @@
+#%RAML 1.0 DataType
+displayName: Order Line
+type: object
+properties:
+  lid:
+    type: integer
+    displayName: Order Line ID
+  pid:
+    type: integer
+    displayName: Production ID
+  date:
+    type: datetime
+    displayName: Date created
+  total:
+    type: number
+    displayName: Total of line
+    required: false
+  profit:
+    type: number
+    displayName: Total profit of line
+    required: false
+  model?: string
+  note?: string
+  q:
+    type: integer
+    displayName: Quantity
+  purchase: !include linebody.raml
+  sell: !include linebody.raml
+example: |
+  {
+    "lid": 1,
+    "pid": 1,
+    "date": "2016-03-01T14:30:03Z",
+    "total": 23.67,
+    "profit": 3.99,
+    "model": "SL33",
+    "note": "A gift for brother",
+    "q": 2,
+    "purchase": {
+      "p": 10.0, "t": 0.88, "s": 0.00, "d": -1.20, "total": 19.68
+    },
+    "sell": {
+      "p": 10.0, "t": 0.88, "s": 3.99, "d": -1.20, "total": 23.67
+    }
+  }
