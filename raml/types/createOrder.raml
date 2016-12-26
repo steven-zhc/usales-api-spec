@@ -1,0 +1,43 @@
+#%RAML 1.0 DataType
+
+type: object
+displayName: Create Order Object
+properties:
+  note?: string
+  deliverFee?: number
+  deliverDate?: date-only
+  trackingNo?: string
+  payment?: number
+  lines:
+    type: array
+    items: !include createOrderLine.raml
+example: |
+  {
+    "note": "Christmase gift",
+    "lines": [
+      {
+        "pid": 1,
+        "model": "SL33",
+        "note": "A gift for brother",
+        "q": 2,
+        "purchase": {
+          "p": 10.0, "t": 0.88, "s": 0.00, "d": -1.20
+        },
+        "sell": {
+          "p": 10.0, "t": 0.88, "s": 3.99, "d": -1.20
+        }
+      },
+      {
+        "pid": 2,
+        "model": "x33i",
+        "note": "A gift for sister",
+        "q": 1,
+        "purchase": {
+          "p": 11.0, "t": 0.00, "s": 0.00, "d": -3.00
+        },
+        "sell": {
+          "p": 11.0, "t": 0.88, "s": 3.99, "d": -0.00
+        }
+      }
+    ]
+  }

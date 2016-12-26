@@ -1,0 +1,15 @@
+#%RAML 1.0 DataType
+
+displayName: Update Order
+type: object
+properties:
+  note?: string
+  deliverFee?: number
+  deliverDate?: date-only
+  trackingNo?: string
+  payment?: number
+example: |
+  {
+    "note": "Try this toy",
+    "trackingNo": "US33123123"
+  }

@@ -1,0 +1,24 @@
+#%RAML 1.0 DataType
+displayName: Create Product Object
+type: object
+properties:
+  name: string
+  cid:
+    type: integer
+    displayName: Category ID
+  desc:
+    type: string
+    displayName: Production Description
+    required: false
+  price:
+    type: number
+    displayName: List price of product
+  url?: string
+example: |
+  {
+    "name": "hot wheel",
+    "cid": 1,
+    "desc": "car model",
+    "price": 3.99,
+    "url": "http://a.b.c"
+  }

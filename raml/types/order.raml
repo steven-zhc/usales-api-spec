@@ -1,7 +1,6 @@
 #%RAML 1.0 DataType
-title: The definition of order types
-version: v1
 
+displayName: Order Type
 type: object
 properties:
   oid:
@@ -20,7 +19,7 @@ properties:
   payment?: number
   lines:
     type: array
-    items: !include orderline.raml
+    items: !include orderLine.raml
 example: |
   {
     "oid": 1,

@@ -5,65 +5,208 @@ baseUri: http://localhost
 description: This is APIs specification for USales.
 mediaType: application/json
 
-types:
-
-
 /category:
   description: Collection of available Categories.
   get:
     description: Get a list of active category.
     queryParameters:
       name:
-        description: The name of category to search (it is case insensitive and doesn't need to match the whole name
+        type: string
+        description: The name of category to search
+          (it is case insensitive and doesn't need to match the whole name)
         required: false
         minLength: 3
-        type: string
         example: "Toy"
     responses:
       200:
         body:
+          application/json:
+            type: array
+            items: !include types/category.raml
   post:
-
+    description: Add a new Category
+    body:
+      application/json:
+        type: !include types/createCategory.raml
+    responses:
+      201:
+        body:
+          application/json:
+            type: !include types/message.raml
+            example: |
+              {
+                "message": "The category has been added."
+              }
   /{categoryID}:
-    description: Category entity
+    description: Category entity APIs
     get:
       description: Retrieve a specific Category.
       responses:
         200:
           body:
             application/json:
-              example: |
-                {
-
-                }
+              type: !include types/category.raml
         404:
           body:
             application/json:
+              type: !include types/message.raml
               example: |
                 {
                 "message": "Category not found."
                 }
     patch:
-    /product:
-      get:
-        queryParameters:
-          name:
+      description: Update Category
+      body:
+        type: !include types/updateCategory.raml
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include types/category.raml
 /product:
-  post:
   get:
+    description: Get a list of active product.
     queryParameters:
       name:
         type: string
-        description: Product name will include this string
+        description: The name of category to search
+          (it is case insensitive and doesn't need to match the whole name)
+        required: false
+        minLength: 3
+        example: "blue"
+      cid:
+        type: integer
+        description: The category ID
+        required: false
+        example: 1
+    responses:
+      200:
+        body:
+          application/json:
+            type: array
+            items: !include types/product.raml
+  post:
+    description: Create a new product
+    body:
+      application/json:
+        type: !include types/createProduct.raml
+    responses:
+      201:
+        body:
+          application/json:
+            type: !include types/product.raml
   /{productID}:
     get:
+      description: Retrieve a specific Product.
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include types/product.raml
+        404:
+          body:
+            application/json:
+              type: !include types/message.raml
+              example: |
+                {
+                "message": "Product not found."
+                }
     patch:
+      description: Update product
+      body:
+        application/json:
+          type: !include types/updateProduct.raml
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include types/product.raml
 /order:
-  post:
   get:
+    description: Get a list of active order.
+    queryParameters:
+      name:
+        type: string
+        description: The name of product to search
+          (it is case insensitive and doesn't need to match the whole name)
+        required: false
+        minLength: 3
+        example: "blue"
+      status:
+        type: integer
+        enum: [0, 1, 2, 3, 4]
+        description: The category ID
+        required: false
+        example: 1
+    responses:
+      200:
+        body:
+          application/json:
+            type: array
+            items: !include types/order.raml
+  post:
+    description: Create a new order
+    body:
+      application/json:
+        type: !include types/createOrder.raml
+    responses:
+      201:
+        body:
+          application/json:
+            type: !include types/order.raml
   /{orderID}:
     get:
+      description: Retrieve a specific Order.
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include types/order.raml
+        404:
+          body:
+            application/json:
+              type: !include types/message.raml
+              example: |
+                {
+                "message": "Order not found."
+                }
     patch:
+      description: Update Order
+      body:
+        application/json:
+          type: !include types/updateOrder.raml
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include types/order.raml
     /line/{lineID}:
-        delete:
-        patch:
+      delete:
+        description: Delete a specific Order Line from Order
+        responses:
+          200:
+            body:
+              application/json:
+                type: !include types/message.raml
+                example: |
+                  {
+                    "message": "Sucessful Deleted."
+                  }
+      patch:
+        description: Update a specific Order Line.
+        body:
+          application/json:
+            type: !include types/updateOrderLine.raml
+        responses:
+          200:
+            body:
+              application/json:
+                type: !include types/orderLine.raml
+          404:
+            body:
+              application/json:
+                type: !include types/message.raml
+                example: |
+                  {
+                    "message": "OrderLine not found."
+                  }
