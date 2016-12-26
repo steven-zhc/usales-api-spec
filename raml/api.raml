@@ -6,7 +6,7 @@ description: This is APIs specification for USales.
 mediaType: application/json
 
 /category:
-  description: Collection of available Categories.
+  description: This is Category of Product.
   get:
     description: Get a list of active category.
     queryParameters:
@@ -64,6 +64,7 @@ mediaType: application/json
             application/json:
               type: !include types/category.raml
 /product:
+  description: A Product is the good you could sell and purchase.
   get:
     description: Get a list of active product.
     queryParameters:
@@ -122,6 +123,7 @@ mediaType: application/json
             application/json:
               type: !include types/product.raml
 /order:
+  description: purchase and sell request.
   get:
     description: Get a list of active order.
     queryParameters:
@@ -180,33 +182,56 @@ mediaType: application/json
           body:
             application/json:
               type: !include types/order.raml
-    /line/{lineID}:
-      delete:
-        description: Delete a specific Order Line from Order
-        responses:
-          200:
-            body:
-              application/json:
-                type: !include types/message.raml
-                example: |
-                  {
-                    "message": "Sucessful Deleted."
-                  }
-      patch:
-        description: Update a specific Order Line.
+    /line:
+      description: A line of order
+      post:
+        description: |
+          Create a new line of order
         body:
           application/json:
-            type: !include types/updateOrderLine.raml
+            type: !include types/createOrderLine.raml
         responses:
-          200:
+          201:
+            description: |
+              Successfully added a new order line to this order
             body:
               application/json:
                 type: !include types/orderLine.raml
-          404:
-            body:
-              application/json:
-                type: !include types/message.raml
-                example: |
-                  {
-                    "message": "OrderLine not found."
-                  }
+      /{lineID}:
+        delete:
+          description: Delete a specific Order Line from Order
+          responses:
+            200:
+              body:
+                application/json:
+                  type: !include types/message.raml
+                  example: |
+                    {
+                      "message": "Sucessful Deleted."
+                    }
+            404:
+              body:
+                application/json:
+                  type: !include types/message.raml
+                  example: |
+                    {
+                      "message": "OrderLine not found."
+                    }
+        patch:
+          description: Update a specific Order Line.
+          body:
+            application/json:
+              type: !include types/updateOrderLine.raml
+          responses:
+            200:
+              body:
+                application/json:
+                  type: !include types/orderLine.raml
+            404:
+              body:
+                application/json:
+                  type: !include types/message.raml
+                  example: |
+                    {
+                      "message": "OrderLine not found."
+                    }
