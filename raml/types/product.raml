@@ -6,9 +6,12 @@ properties:
     type: integer
     displayName: Product ID
   name: string
-  c:
-    type: !include category.raml
-    displayName: Category of product
+  cid:
+    type: integer
+    displayName: Category ID
+  cname:
+    type: string
+    displayName: Category Name
   desc:
     type: string
     displayName: Production Description
@@ -21,7 +24,8 @@ example: |
   {
     "pid": 1,
     "name": "hot wheel",
-    "c": {"cid": 1, "name": "toy"},
+    "cid": 1,
+    "cname": "toy",
     "desc": "car model",
     "price": 3.99,
     "url": "http://a.b.c"
