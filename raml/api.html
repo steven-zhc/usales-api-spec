@@ -1,0 +1,237 @@
+<!DOCTYPE HTML><html><head><title>USales APIs API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 4.0.3"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h1 {
+        font-size: 1.3em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+      pre code {
+        overflow: auto;
+        word-wrap: normal;
+        white-space: pre;
+      }
+      .items {
+        background: #f5f5f5;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>USales APIs API documentation <small>version v1</small></h1><p>http://localhost</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="category" class="panel-title">/category</h3></div><div class="panel-body"><div class="top-resource-description"><p>This is Category of Product.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_category"><span class="parent"></span>/category</a> <span class="methods"><a href="#category_get"><span class="badge badge_get">get</span></a> <a href="#category_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_category" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#category_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a list of active category.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#category_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add a new Category</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="category_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/category</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a list of active category.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#category_get_request" data-toggle="tab">Request</a></li><li><a href="#category_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="category_get_request"><h3>Query Parameters</h3><ul><li><strong>name</strong>: <em>(string - minLength: 3)</em><p>The name of category to search (it is case insensitive and doesn&#39;t need to match the whole name)</p><p><strong>Examples</strong>:</p><pre>Toy</pre></li></ul></div><div class="tab-pane" id="category_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: array of Category</p><p><strong>Items</strong>: Category</p><div class="items"><ul><li><strong>cid</strong>: <em>required (integer)</em></li><li><strong>name</strong>: <em>required (string)</em></li></ul><p><strong>Examples</strong>:</p><pre><code>{
+  "cid": 1,
+  "name": "toy"
+}
+</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="category_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/category</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add a new Category</p></div><ul class="nav nav-tabs"><li class="active"><a href="#category_post_request" data-toggle="tab">Request</a></li><li><a href="#category_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="category_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>name</strong>: <em>required (string)</em></li></ul><p><strong>Examples</strong>:</p><pre><code>{
+  "name": "toy"
+}
+</code></pre></div><div class="tab-pane" id="category_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_category__categoryid_"><span class="parent">/category</span>/{categoryID}</a> <span class="methods"><a href="#category__categoryid__get"><span class="badge badge_get">get</span></a> <a href="#category__categoryid__patch"><span class="badge badge_patch">patch</span></a></span></h4></div><div id="panel_category__categoryid_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Category entity APIs</p></div><div class="list-group"><div onclick="window.location.href = '#category__categoryid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve a specific Category.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#category__categoryid__patch'" class="list-group-item"><span class="badge badge_patch">patch</span><div class="method_description"><p>Update Category</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="category__categoryid__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/category</span>/{categoryID}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve a specific Category.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#category__categoryid__get_request" data-toggle="tab">Request</a></li><li><a href="#category__categoryid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="category__categoryid__get_request"><h3>URI Parameters</h3><ul><li><strong>categoryID</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="category__categoryid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><p><strong>Examples</strong>:</p><pre><code>{
+"message": "Category not found."
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="category__categoryid__patch"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_patch">patch</span> <span class="parent">/category</span>/{categoryID}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update Category</p></div><ul class="nav nav-tabs"><li class="active"><a href="#category__categoryid__patch_request" data-toggle="tab">Request</a></li><li><a href="#category__categoryid__patch_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="category__categoryid__patch_request"><h3>URI Parameters</h3><ul><li><strong>categoryID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div><div class="tab-pane" id="category__categoryid__patch_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="product" class="panel-title">/product</h3></div><div class="panel-body"><div class="top-resource-description"><p>A Product is the good you could sell and purchase.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_product"><span class="parent"></span>/product</a> <span class="methods"><a href="#product_get"><span class="badge badge_get">get</span></a> <a href="#product_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_product" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#product_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a list of active product.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#product_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new product</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="product_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/product</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a list of active product.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#product_get_request" data-toggle="tab">Request</a></li><li><a href="#product_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="product_get_request"><h3>Query Parameters</h3><ul><li><strong>name</strong>: <em>(string - minLength: 3)</em><p>The name of category to search (it is case insensitive and doesn&#39;t need to match the whole name)</p><p><strong>Examples</strong>:</p><pre>blue</pre></li><li><strong>cid</strong>: <em>(integer)</em><p>The category ID</p><p><strong>Examples</strong>:</p><pre><code>1</code></pre></li></ul></div><div class="tab-pane" id="product_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: array of Product Object</p><p><strong>Items</strong>: Product Object</p><div class="items"><ul><li><strong>pid</strong>: <em>required (integer)</em></li><li><strong>name</strong>: <em>required (string)</em></li><li><strong>c</strong>: <em>required ([object Object])</em></li><li><strong>desc</strong>: <em>(string)</em></li><li><strong>price</strong>: <em>required (number)</em></li><li><strong>url</strong>: <em>(string)</em></li></ul><p><strong>Examples</strong>:</p><pre><code>{
+  "pid": 1,
+  "name": "hot wheel",
+  "c": {"cid": 1, "name": "toy"},
+  "desc": "car model",
+  "price": 3.99,
+  "url": "http://a.b.c"
+}
+</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="product_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/product</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new product</p></div><ul class="nav nav-tabs"><li class="active"><a href="#product_post_request" data-toggle="tab">Request</a></li><li><a href="#product_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="product_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div><div class="tab-pane" id="product_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_product__productid_"><span class="parent">/product</span>/{productID}</a> <span class="methods"><a href="#product__productid__get"><span class="badge badge_get">get</span></a> <a href="#product__productid__patch"><span class="badge badge_patch">patch</span></a></span></h4></div><div id="panel_product__productid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#product__productid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve a specific Product.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#product__productid__patch'" class="list-group-item"><span class="badge badge_patch">patch</span><div class="method_description"><p>Update product</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="product__productid__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/product</span>/{productID}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve a specific Product.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#product__productid__get_request" data-toggle="tab">Request</a></li><li><a href="#product__productid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="product__productid__get_request"><h3>URI Parameters</h3><ul><li><strong>productID</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="product__productid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><p><strong>Examples</strong>:</p><pre><code>{
+"message": "Product not found."
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="product__productid__patch"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_patch">patch</span> <span class="parent">/product</span>/{productID}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update product</p></div><ul class="nav nav-tabs"><li class="active"><a href="#product__productid__patch_request" data-toggle="tab">Request</a></li><li><a href="#product__productid__patch_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="product__productid__patch_request"><h3>URI Parameters</h3><ul><li><strong>productID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div><div class="tab-pane" id="product__productid__patch_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="order" class="panel-title">/order</h3></div><div class="panel-body"><div class="top-resource-description"><p>purchase and sell request.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_order"><span class="parent"></span>/order</a> <span class="methods"><a href="#order_get"><span class="badge badge_get">get</span></a> <a href="#order_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_order" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#order_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a list of active order.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#order_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new order</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="order_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/order</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a list of active order.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#order_get_request" data-toggle="tab">Request</a></li><li><a href="#order_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order_get_request"><h3>Query Parameters</h3><ul><li><strong>name</strong>: <em>(string - minLength: 3)</em><p>The name of product to search (it is case insensitive and doesn&#39;t need to match the whole name)</p><p><strong>Examples</strong>:</p><pre>blue</pre></li><li><strong>status</strong>: <em>(one of 0, 1, 2, 3, 4)</em><p>The category ID</p><p><strong>Examples</strong>:</p><pre><code>1</code></pre></li></ul></div><div class="tab-pane" id="order_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: array of Order Type</p><p><strong>Items</strong>: Order Type</p><div class="items"><ul><li><strong>oid</strong>: <em>required (integer)</em></li><li><strong>status</strong>: <em>required (one of 0, 1, 2, 3, 4)</em></li><li><strong>total</strong>: <em>required (number)</em></li><li><strong>profit</strong>: <em>required (number)</em></li><li><strong>date</strong>: <em>required (datetime)</em></li><li><strong>note</strong>: <em>(string)</em></li><li><strong>deliverFee</strong>: <em>(number)</em></li><li><strong>deliverDate</strong>: <em>(date-only)</em></li><li><strong>trackingNo</strong>: <em>(string)</em></li><li><strong>payment</strong>: <em>(number)</em></li><li><strong>lines</strong>: <em>required (array of Order Line)</em><p><strong>Items</strong>: Order Line</p><div class="items"><ul><li><strong>lid</strong>: <em>required (integer)</em></li><li><strong>pid</strong>: <em>required (integer)</em></li><li><strong>date</strong>: <em>required (datetime)</em></li><li><strong>total</strong>: <em>(number)</em></li><li><strong>profit</strong>: <em>(number)</em></li><li><strong>model</strong>: <em>(string)</em></li><li><strong>note</strong>: <em>(string)</em></li><li><strong>q</strong>: <em>required (integer)</em></li><li><strong>purchase</strong>: <em>required (object)</em><ul><li><strong>p</strong>: <em>required (number)</em></li><li><strong>t</strong>: <em>required (number)</em></li><li><strong>s</strong>: <em>required (number)</em></li><li><strong>d</strong>: <em>(number - maximum: 0)</em></li><li><strong>total</strong>: <em>(number)</em></li></ul></li><li><strong>sell</strong>: <em>required (object)</em><ul><li><strong>p</strong>: <em>required (number)</em></li><li><strong>t</strong>: <em>required (number)</em></li><li><strong>s</strong>: <em>required (number)</em></li><li><strong>d</strong>: <em>required (number - maximum: 0)</em></li><li><strong>total</strong>: <em>required (number)</em></li></ul></li></ul><p><strong>Examples</strong>:</p><pre><code>{
+  "lid": 1,
+  "pid": 1,
+  "date": "2016-03-01T14:30:03Z",
+  "total": 23.67,
+  "profit": 3.99,
+  "model": "SL33",
+  "note": "A gift for brother",
+  "q": 2,
+  "purchase": {
+    "p": 10.0, "t": 0.88, "s": 0.00, "d": -1.20, "total": 19.68
+  },
+  "sell": {
+    "p": 10.0, "t": 0.88, "s": 3.99, "d": -1.20, "total": 23.67
+  }
+}
+</code></pre></div></li></ul><p><strong>Examples</strong>:</p><pre><code>{
+  "oid": 1,
+  "status": 2,
+  "total": 23.67,
+  "profit": 3.99,
+  "date": "2016-03-01T14:30:03Z",
+  "lines": [
+    {
+      "lid": 1,
+      "pid": 1,
+      "date": "2016-03-01T14:30:03Z",
+      "total": 23.67,
+      "profit": 3.99,
+      "model": "SL33",
+      "note": "A gift for brother",
+      "q": 2,
+      "purchase": {
+        "p": 10.0, "t": 0.88, "s": 0.00, "d": -1.20, "total": 19.68
+      },
+      "sell": {
+        "p": 10.0, "t": 0.88, "s": 3.99, "d": -1.20, "total": 23.67
+      }
+    }
+  ]
+}
+</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="order_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/order</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new order</p></div><ul class="nav nav-tabs"><li class="active"><a href="#order_post_request" data-toggle="tab">Request</a></li><li><a href="#order_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div><div class="tab-pane" id="order_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_order__orderid_"><span class="parent">/order</span>/{orderID}</a> <span class="methods"><a href="#order__orderid__get"><span class="badge badge_get">get</span></a> <a href="#order__orderid__patch"><span class="badge badge_patch">patch</span></a></span></h4></div><div id="panel_order__orderid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#order__orderid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve a specific Order.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#order__orderid__patch'" class="list-group-item"><span class="badge badge_patch">patch</span><div class="method_description"><p>Update Order</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="order__orderid__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/order</span>/{orderID}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve a specific Order.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#order__orderid__get_request" data-toggle="tab">Request</a></li><li><a href="#order__orderid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order__orderid__get_request"><h3>URI Parameters</h3><ul><li><strong>orderID</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="order__orderid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><p><strong>Examples</strong>:</p><pre><code>{
+"message": "Order not found."
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="order__orderid__patch"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_patch">patch</span> <span class="parent">/order</span>/{orderID}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update Order</p></div><ul class="nav nav-tabs"><li class="active"><a href="#order__orderid__patch_request" data-toggle="tab">Request</a></li><li><a href="#order__orderid__patch_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order__orderid__patch_request"><h3>URI Parameters</h3><ul><li><strong>orderID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div><div class="tab-pane" id="order__orderid__patch_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_order__orderid__line"><span class="parent">/order/{orderID}</span>/line</a> <span class="methods"><a href="#order__orderid__line_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_order__orderid__line" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>A line of order</p></div><div class="list-group"><div onclick="window.location.href = '#order__orderid__line_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new line of order</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="order__orderid__line_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/order/{orderID}</span>/line</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new line of order</p></div><ul class="nav nav-tabs"><li class="active"><a href="#order__orderid__line_post_request" data-toggle="tab">Request</a></li><li><a href="#order__orderid__line_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order__orderid__line_post_request"><h3>URI Parameters</h3><ul><li><strong>orderID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div><div class="tab-pane" id="order__orderid__line_post_response"><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Successfully added a new order line to this order</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_order__orderid__line__lineid_"><span class="parent">/order/{orderID}/line</span>/{lineID}</a> <span class="methods"><a href="#order__orderid__line__lineid__delete"><span class="badge badge_delete">delete</span></a> <a href="#order__orderid__line__lineid__patch"><span class="badge badge_patch">patch</span></a></span></h4></div><div id="panel_order__orderid__line__lineid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#order__orderid__line__lineid__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete a specific Order Line from Order</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#order__orderid__line__lineid__patch'" class="list-group-item"><span class="badge badge_patch">patch</span><div class="method_description"><p>Update a specific Order Line.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="order__orderid__line__lineid__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/order/{orderID}/line</span>/{lineID}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete a specific Order Line from Order</p></div><ul class="nav nav-tabs"><li class="active"><a href="#order__orderid__line__lineid__delete_request" data-toggle="tab">Request</a></li><li><a href="#order__orderid__line__lineid__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order__orderid__line__lineid__delete_request"><h3>URI Parameters</h3><ul><li><strong>orderID</strong>: <em>required (string)</em></li><li><strong>lineID</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="order__orderid__line__lineid__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><p><strong>Examples</strong>:</p><pre><code>{
+  "message": "Sucessful Deleted."
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><p><strong>Examples</strong>:</p><pre><code>{
+  "message": "OrderLine not found."
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="order__orderid__line__lineid__patch"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_patch">patch</span> <span class="parent">/order/{orderID}/line</span>/{lineID}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update a specific Order Line.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#order__orderid__line__lineid__patch_request" data-toggle="tab">Request</a></li><li><a href="#order__orderid__line__lineid__patch_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order__orderid__line__lineid__patch_request"><h3>URI Parameters</h3><ul><li><strong>orderID</strong>: <em>required (string)</em></li><li><strong>lineID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre></div><div class="tab-pane" id="order__orderid__line__lineid__patch_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>[object Object]</code></pre><p><strong>Examples</strong>:</p><pre><code>{
+  "message": "OrderLine not found."
+}
+</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#category">/category</a></li><li><a href="#product">/product</a></li><li><a href="#order">/order</a></li></ul></div></div></div></div></body></html>
