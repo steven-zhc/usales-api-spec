@@ -215,8 +215,8 @@ Add a new Order
     + Attributes (Order)
 
 ## Order Collection [/order{?name,status}]
-### Retrieve Products  [GET]
-Get a list of product.
+### Retrieve Orders  [GET]
+Get a list of orders.
 
 + Parameters
     + name: toy (string, optional) - The name of Product to search (it is case insensitive and doesn't need to match the whole name)
@@ -269,6 +269,11 @@ Create a new line of order
 
 + Response 201 (application/json)
     + Attributes (Order Line)
+
+## An Order Line [/order/{oid}/line/{lid}]
++ Parameters
+    + oid: 1 (number) - ID of the Order in form of an integer
+    + lid: 1 (number) - ID of the Order Line in form of an integer
 
 ### Update Line [PATCH]
 Update an Order Line
