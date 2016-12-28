@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://localhost/
+HOST: http://localhost:5050/
 
 # usales
 
@@ -257,7 +257,7 @@ Get a list of orders.
 + Parameters
     + oid: 1 (number) - ID of the Order in form of an integer
 
-### Retrive Order Lines [GET]
+### Retrieve Order Lines [GET]
 Get a list of order lines in a specific order.
 + Response 200 (application/json)
     + Attributes (Order Line Array)
